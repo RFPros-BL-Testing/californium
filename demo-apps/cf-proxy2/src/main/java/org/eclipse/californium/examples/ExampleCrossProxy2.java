@@ -130,8 +130,7 @@ public class ExampleCrossProxy2 {
 		DtlsConfig.register();
 	}
 
-	public static final List<Mode> SUPPORTED_MODES = Arrays.asList(Mode.PSK, Mode.ECDHE_PSK, Mode.RPK, Mode.X509,
-	Mode.NO_AUTH);
+	public static final List<Mode> SUPPORTED_MODES = Arrays.asList(Mode.PSK, Mode.ECDHE_PSK, Mode.X509, Mode.RPK, Mode.WANT_AUTH);
 
 	/**
 	 * Special configuration defaults handler.
@@ -222,8 +221,8 @@ public class ExampleCrossProxy2 {
 
 		DtlsConnectorConfig.Builder builder = DtlsConnectorConfig.builder(config)
 				.setAddress(new InetSocketAddress(coapsPort));
-		CredentialsUtil.setupCid(new String[]{"PSK", "ECDHE_PSK", "RPK", "X509"}, builder);
-		List<Mode> modes = CredentialsUtil.parse(new String[]{"PSK", "ECDHE_PSK", "RPK", "X509", "NO_AUTH"}, CredentialsUtil.DEFAULT_SERVER_MODES, SUPPORTED_MODES);
+		CredentialsUtil.setupCid(new String[]{"PSK", "ECDHE_PSK", "X509", "RPK"}, builder);
+		List<Mode> modes = CredentialsUtil.parse(new String[]{"PSK", "ECDHE_PSK", "X509", "RPK"}, CredentialsUtil.DEFAULT_SERVER_MODES, SUPPORTED_MODES);
 		CredentialsUtil.setupCredentials(builder, CredentialsUtil.SERVER_NAME, modes);
 		DTLSConnector connector = new DTLSConnector(builder.build());
 		CoapEndpoint.Builder coapBuilder = new CoapEndpoint.Builder()

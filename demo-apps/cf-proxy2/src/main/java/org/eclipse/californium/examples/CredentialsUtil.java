@@ -97,8 +97,8 @@ public class CredentialsUtil {
 	public static final List<Mode> DEFAULT_SERVER_MODES = Arrays.asList(Mode.PSK, Mode.ECDHE_PSK, Mode.RPK, Mode.X509);
 
 	// from ETSI Plugtest test spec
-	public static final String PSK_IDENTITY = "password";
-	public static final byte[] PSK_SECRET = "sesame".getBytes();
+	public static final String PSK_IDENTITY = "82746724";
+	public static final byte[] PSK_SECRET = "3489230960281487".getBytes();
 
 	public static final String OPEN_PSK_IDENTITY = "Client_identity";
 	public static final byte[] OPEN_PSK_SECRET = "secretPSK".getBytes();
@@ -108,9 +108,11 @@ public class CredentialsUtil {
 	public static final int DEFAULT_CID_LENGTH = 6;
 
 	// from demo-certs
-	public static final String SERVER_NAME = "server.*";
+	//public static final String SERVER_NAME = "server.*";
+	public static final String SERVER_NAME = "coap-proxy-server";
 	public static final String CLIENT_NAME = "client";
-	private static final String TRUST_NAME = "root";
+	//private static final String TRUST_NAME = "root";
+	public static final String TRUST_NAME = "laird-dev-nbiot-catruststore";
 	private static final char[] TRUST_STORE_PASSWORD = "rootPass".toCharArray();
 	private static final char[] KEY_STORE_PASSWORD = "endPass".toCharArray();
 	private static final String KEY_STORE_LOCATION = "certs/keyStore.jks";
